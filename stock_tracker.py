@@ -191,7 +191,7 @@ def get_economic_picks():
 def get_top_3_picks(stock_data_dict):
     stock_data_list = list(stock_data_dict.values())
     sorted_data = sorted(stock_data_list, key=lambda x: (x["Change"], x["Momentum"]), reverse=True)
-    top_picks = [stock for stock in sorted_data if stock["Change"] > 0 and stock["Momentum"] > 0.005][:3]
+    top_picks = [stock for stock in sorted_data if stock["Change"] > 0 and stock["Momentum"] > 0.001][:3]
     if len(top_picks) < 3:
         additional_picks = [stock for stock in sorted_data if stock["Change"] > 0 and stock not in top_picks][:3 - len(top_picks)]
         top_picks.extend(additional_picks)
